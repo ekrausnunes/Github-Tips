@@ -115,3 +115,6 @@ git remote
 
 -Vendo os repositório com mais detalhes (o caminho dele)
 git remote -v
+
+-Sincronizar os commits do git com o github, necessário realizar um push
+git push origin master (o origin é o meu github  e o master é tudo que eu tenho no meu git)
