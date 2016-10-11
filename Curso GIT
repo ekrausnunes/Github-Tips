@@ -1,0 +1,105 @@
+Curso GIT
+---------------------
+Configurações básicas
+---------------------
+-Configurar usuário global
+git config --global user.name "Eduardo Kraus Nunes"
+
+-Configurar e-mail
+git config --global user.email "ekrausnunes@gmail.com"
+
+-Definir editor
+git config --global core.editor subl
+
+-Saber quem é o usuário do git
+git config user.name
+
+-Saber o e-mail
+git config user.email
+
+-Para saber todas as configurações
+git config --list
+
+----------------------------------
+Essencial do GIT
+----------------------------------
+-Criar pasta
+mkdir git-course
+
+-Acessar pasta
+cd git-course/
+
+-Inicializar, tem que se feito sempre dentro do repositório
+git init
+
+-Ver todos os conteudos da pasta, mesmo os ocultos
+ls -la
+
+-Acessar repositório
+cd .git
+
+-Exibir conteudo do repositório
+ls
+
+-Voltar diretório
+cd ..
+
+-Status do GIT
+	-untracked: ainda não foi adicionado ao GIT;
+	-unmodified: foi adicionado no GIT e não possui nenhuma alteração;
+	-modified: existe uma alteração nesse arquivo;
+	-staged: um status que serve para armazenar todos os arquivos que devem ser levados quando foi dado o commit e após o commit, todos os arquivos voltam para o status de unmodified;
+
+-Exibir o status do repositório
+git status
+
+-Adicionar arquivo recentimente criado (untracked)	
+git add nome_arquivo
+git add Readme.md
+
+-Criando um snapshot
+git commit -m "Add Readme.md"
+
+-Visualizando Logs
+git log
+	-Mostra mais informações (branch, tags, merge)
+	git log --decorate
+
+	-Filtrando por algum autor
+	git log --author="Eduardo"
+
+	-Logs curto, é ordenado por autor, quantos commits o cara fez, etc.
+	git shortlog
+
+	-Logs só de quantidade de pessoas e suas quantidades de commits
+	git shortlog -sn
+
+	-Mostra de forma gráfica o que esta acontecendo com o branch e suas versões
+	git log --graph
+
+	-Pesquisar pela ref
+	git show (e dai informar a ref do commit, exemplo: "git show bf3046f449fc4d702b431ea530cfac1d4a39992a") 
+
+-Verificar as diferenças
+git diff
+	-Mostra somente o nome do arquivo modificado
+	git diff --name-only
+
+-Dando um commit nos arquivos alterados que já existem. O -am é referente a todos os arquivos.
+git commit -am "Edit Readme"
+
+-Atualizando um arquivo alterado que você ainda não tenha dado commit nas alterações nem adicionou essas alterações para ser dado o commit. Esse comando não volta as alteraçoes caso o arquivo já esteja no status "staged". Com esse comando ele baixa a ultima versão do arquivo no git sem a sua alteração local, em outras palavras ele "queima" as suas alterações.
+git checkout "Readme.md"
+
+-Tirar arquivo da fila do status de "staged", pois nesse quando for dado commit tudo que tem neste estado vai para a HEAD/Branch. Assim com esse comando o arquivo volta ao status de "modified" com pendencias para adicionar. 
+git reset HEAD Readme.md
+
+-Como voltar um arquivo que foi commitado erroneamente. São 3 opções para isso:
+	-Mata o commit que foi dado com isso as alterações saem da HEAD, mas o arquivo volta a ter o status "staged", pronto para ser commitado novamente.
+	git reset --soft (mais a rash do arquivo, exemplo "git reset --soft bf3046f449fc4d702b431ea530cfac1d4a39992a")
+	
+	-Mata o commit dado e volta os arquivos para o status antes do "staged" que é o "modified"
+	git reset --mixed (mais a rash do arquivo, exemplo "git reset --mixed bf3046f449fc4d702b431ea530cfac1d4a39992a")
+	
+	-Mata o commit e mata todas as alterações que foram feitas neles, com isso você perde todas as modificações que foram dadas no commit.
+	git reset --hard (mais a rash do arquivo, exemplo "git reset --hard bf3046f449fc4d702b431ea530cfac1d4a39992a")
