@@ -85,7 +85,7 @@ git diff
 	-Mostra somente o nome do arquivo modificado
 	git diff --name-only
 
--Dando um commit nos arquivos alterados que já existem. O -am é referente a todos os arquivos.
+-Dando um commit nos arquivos alterados que já existem. O -am o "a" é para mandar o arquivo e o "m" para mandar uma mensagem.
 git commit -am "Edit Readme"
 
 -Atualizando um arquivo alterado que você ainda não tenha dado commit nas alterações nem adicionou essas alterações para ser dado o commit. Esse comando não volta as alteraçoes caso o arquivo já esteja no status "staged". Com esse comando ele baixa a ultima versão do arquivo no git sem a sua alteração local, em outras palavras ele "queima" as suas alterações.
