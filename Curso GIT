@@ -95,11 +95,23 @@ git checkout "Readme.md"
 git reset HEAD Readme.md
 
 -Como voltar um arquivo que foi commitado erroneamente. São 3 opções para isso:
-	-Mata o commit que foi dado com isso as alterações saem da HEAD, mas o arquivo volta a ter o status "staged", pronto para ser commitado novamente.
-	git reset --soft (mais a rash do arquivo, exemplo "git reset --soft bf3046f449fc4d702b431ea530cfac1d4a39992a")
+	-Mata o commit que foi dado com isso as alterações saem da HEAD, mas o arquivo volta a ter o status "staged", pronto para ser commitado novamente. Lembrando aqui que tem que ser informado a hash do arquivo anterior, tem que ser informada hash de antes do arquivo ser commitado pois aquela que foi realizado o commit irá deixar de existir.
+	git reset --soft (mais a hash do arquivo, exemplo "git reset --soft bf3046f449fc4d702b431ea530cfac1d4a39992a")
 	
 	-Mata o commit dado e volta os arquivos para o status antes do "staged" que é o "modified"
-	git reset --mixed (mais a rash do arquivo, exemplo "git reset --mixed bf3046f449fc4d702b431ea530cfac1d4a39992a")
+	git reset --mixed (mais a hash do arquivo, exemplo "git reset --mixed bf3046f449fc4d702b431ea530cfac1d4a39992a")
 	
 	-Mata o commit e mata todas as alterações que foram feitas neles, com isso você perde todas as modificações que foram dadas no commit.
-	git reset --hard (mais a rash do arquivo, exemplo "git reset --hard bf3046f449fc4d702b431ea530cfac1d4a39992a")
+	git reset --hard (mais a hash do arquivo, exemplo "git reset --har dbf3046f449fc4d702b431ea530cfac1d4a39992a")
+
+-Ligando o repositório local do git com o github, após ter logado e criado um repositório no github, realizar o comando abaixo, pois ele contém o caminho do github, com o qual você vai vincular o seu projeto local.
+	git remote add origin https://github.com/ekrausnunes/github-course.git
+	- o -u é para trackear, para só precisar da um git push e ali eu digo que meu git master(local)vai para o meu github (origin).
+	git push -u origin master
+
+
+-Vendo os repositórios remotos
+git remote
+
+-Vendo os repositório com mais detalhes (o caminho dele)
+git remote -v
