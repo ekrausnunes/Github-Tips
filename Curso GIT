@@ -60,6 +60,10 @@ git add Readme.md
 -Criando um snapshot
 git commit -m "Add Readme.md"
 
+-Snapshot é uma foto do repositório naquele momento, cada commit é tirado um Snapshot.
+
+-Hash é um convjunto de letras e números que são gerados a partir de um commit, com esse hasc é possível voltar versões, etc.
+
 -Visualizando Logs
 git log
 	-Mostra mais informações (branch, tags, merge)
@@ -118,3 +122,33 @@ git remote -v
 
 -Sincronizar os commits do git com o github, necessário realizar um push
 git push origin master (o origin é o meu github  e o master é tudo que eu tenho no meu git)
+
+-Clonando o seu projeto em outros ambientes de trabalho (Casa, trabalho, etc.), o link o github fornece, então quando quiser clonar um repositório apenas pegar esse link e dar um clone. Lembrando de fazer isso fora do repositório do seu projeto, pois ele vai copiar o projeto novo. E depois do link colocar o nome que você quer.
+git clone https://github.com/ekrausnunes/github-course.git github-course-clone
+
+-Copiando projetos que não são seus, utilizando o Fork. Exemplo, você quer contribuir com um projeto, logo você vai no github e irá dar um Fork nele. Com isso ele copia todo o repositório daquele projeto, par ao seu repositório, para sua conta.
+
+-Branch é um ponteiro móvel que leva a um commit. Ele é uma versão paralela do "Master".
+
+-Criando um Branch. O significado do -b, é dizer ao git que você está criando um branch.
+git checkout -b testing
+git checkout + -b + nome do branch
+
+-Comando para saber em qual branch você está trabalhando. Ele vai mostrar todos os branch e o master e dizer em qual você está.
+git branch
+
+-Comando para escolher o branch que eu quero trabalhar
+git checkout testing 
+
+-Apagar um branch. -D serve para dizer que ele será deletado da árvore, mais o nome do branch a ser deletado. Sendo que quando for deletar você não pode estar apontado para aquele branch.
+git branch -D testing
+
+-Merge, maneira para unir branches;
+	- Sempre quando for dado o merge será dado um commit a mais para juntar tudo;
+	- Merge não é uma solução destrutiva, ele uni todas as modificações;
+	- O histórico fica em forme de diamante, triangulo, pois ele mantém os outros branchs;
+
+-Rebase, move um branch para a última posição da árvore;
+	- Ele não cria commit extra;
+	- O histórico é linear;
+	- O histórico perde a ordem cronologica;
