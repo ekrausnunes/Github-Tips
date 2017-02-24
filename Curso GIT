@@ -149,6 +149,30 @@ git branch -D testing
 	- O histórico fica em forme de diamante, triangulo, pois ele mantém os outros branchs;
 
 -Rebase, move um branch para a última posição da árvore;
+git rebase nome-do-
 	- Ele não cria commit extra;
 	- O histórico é linear;
 	- O histórico perde a ordem cronologica;
+
+-Stash, responsavel por guardar informações que ainda não foram commitadas em um arquivo;
+ 	- Ele serve para quando você altera algum fonte mas não quer commitar, então você da um git stash para que ele guarde essas alterações para num futuro você commitar.
+git stash
+git stash apply
+git stash list
+git stash clear
+
+-Alias, criar alias para os comandos. Ex.: git status -> git s
+git config --global alias.s(o "s" aqui é o atalho que eu quero seguido do comando) status
+
+-Tag, criar uma marcação
+git tag -a 1.0.0 -m "Readme finalizado"
+git push orgin master --tags
+
+-Deletar tag
+git tag -d 1.0.0
+
+-Revert, ele volta um commit escolhido da produção. Ele não tira o commit na produção, apenas o que foi alterado.
+git revert b1f64df3aa10267d5e40a4c669732582f6f5ac6d
+
+-Apagar tags e branches de repositorios remotos (github)
+git push origin :1.0.0
